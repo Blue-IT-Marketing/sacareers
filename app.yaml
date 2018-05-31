@@ -1,5 +1,5 @@
-application: justice-ndou
-version: 2
+application: sa-careers
+version: 1
 runtime: python27
 api_version: 1
 threadsafe: yes
@@ -14,17 +14,6 @@ handlers:
 
 - url: /static
   static_dir: static
-
-- url: /service.js
-  static_files: static/service.js
-  upload: static/service.js
-  expiration: 0m
-
-
-- url: /static/sw/sw-toolbox.js
-  static_files: static/sw/sw-toolbox.js
-  upload: static/sw/sw-toolbox.js
-  expiration: 0m
 
 - url: .*
   script: main.app
