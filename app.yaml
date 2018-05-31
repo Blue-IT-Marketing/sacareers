@@ -1,0 +1,45 @@
+application: justice-ndou
+version: 2
+runtime: python27
+api_version: 1
+threadsafe: yes
+includes:
+
+- nav.yaml
+
+handlers:
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+
+- url: /static
+  static_dir: static
+
+- url: /service.js
+  static_files: static/service.js
+  upload: static/service.js
+  expiration: 0m
+
+
+- url: /static/sw/sw-toolbox.js
+  static_files: static/sw/sw-toolbox.js
+  upload: static/sw/sw-toolbox.js
+  expiration: 0m
+
+- url: .*
+  script: main.app
+
+
+libraries:
+- name: webapp2
+  version: "2.5.2"
+- name: jinja2
+  version: latest
+- name: ssl
+  version: "latest"
+
+
+inbound_services:
+- mail
+- warmup
+- channel_presence
