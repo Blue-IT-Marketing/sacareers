@@ -1,4 +1,4 @@
 handlers:
-- url: /navigation/.*
-  script: navigation.app
+- url: /nav/.*
+  script: nav.app
   secure: always
