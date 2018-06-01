@@ -79,6 +79,11 @@ class MainRouterHandler(webapp2.RequestHandler):
         context = {}
         self.response.write(template.render(context))
 
+    def RouteAccount(self):
+        template = template_env.get_template('templates/accounts/accounts.html')
+        context = {}
+        self.response.write(template.render(context))
+
     def RouteLoginPost(self,vstrChoice):
         
         #from firebase_admin import auth
@@ -104,12 +109,6 @@ class MainRouterHandler(webapp2.RequestHandler):
             #decode_token = auth.verify_id_token(vstrAccessToken)
             #uid = decode_token['uid']
 
-
-
-    def RouteServiceAccount(self):
-        template = template_env.get_template('templates/firebase/service_account.json')
-        context = {}
-        self.response.write(template.render(context))
 
     def get(self):
         """
@@ -140,6 +139,9 @@ class MainRouterHandler(webapp2.RequestHandler):
 
             elif ("contact" in strURLlist) or ("contact.html" in strURLlist):
                 self.RouteContact()
+            
+            elif ("account" in strURLlist) or ("account.html" in strURLlist):
+                self.RouteAccount()
 
             elif "sitemap.xml" in strURLlist:
                 self.RouteSitemap()
