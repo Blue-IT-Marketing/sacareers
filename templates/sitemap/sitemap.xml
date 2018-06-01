@@ -5,30 +5,36 @@
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <url>
-  <loc>https://easyhosting.site/</loc>
+  <loc>https://sacareers.site/</loc>
   <changefreq>always</changefreq>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://easyhosting.site/login</loc>
+  <loc>https://sacareers.site/login</loc>
   <changefreq>always</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://easyhosting.site/about</loc>
+  <loc>https://sacareers.site/about</loc>
   <changefreq>always</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://easyhosting.site/contact</loc>
+  <loc>https://sacareers.site/contact</loc>
   <changefreq>always</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://easyhosting.site/domains</loc>
+  <loc>https://sacareers.site/companies</loc>
   <changefreq>always</changefreq>
   <priority>1</priority>
 </url>
+<url>
+  <loc>https://sacareers.site/careers</loc>
+  <changefreq>always</changefreq>
+  <priority>1</priority>
+</url>
+
 </urlset>
 
 

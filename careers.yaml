@@ -1,0 +1,6 @@
+handlers:
+- url    : /careers
+  script : careers.app
+  
+- url    : /careers/.*
+  script : careers.app
