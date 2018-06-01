@@ -74,6 +74,11 @@ class MainRouterHandler(webapp2.RequestHandler):
         context = {}
         self.response.write(template.render(context))
 
+    def RouteContact(self):
+        template = template_env.get_template('templates/contact/contact.html')
+        context = {}
+        self.response.write(template.render(context))
+
     def RouteLoginPost(self,vstrChoice):
         
         #from firebase_admin import auth
@@ -132,6 +137,9 @@ class MainRouterHandler(webapp2.RequestHandler):
             elif ("pricing" in strURLlist) or ("pricing.html" in strURLlist):
 
                 self.RoutePricing()
+
+            elif ("contact" in strURLlist) or ("contact.html" in strURLlist):
+                self.RouteContact()
 
             elif "sitemap.xml" in strURLlist:
                 self.RouteSitemap()
