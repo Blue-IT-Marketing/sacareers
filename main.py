@@ -75,7 +75,7 @@ class MainRouterHandler(webapp2.RequestHandler):
         self.response.write(template.render(context))
 
     def RouteLoginPost(self,vstrChoice):
-        from accounts import Accounts,Organization
+        
         #from firebase_admin import auth
 
         if vstrChoice == "0":
@@ -99,51 +99,6 @@ class MainRouterHandler(webapp2.RequestHandler):
             #decode_token = auth.verify_id_token(vstrAccessToken)
             #uid = decode_token['uid']
 
-            findRequest = Accounts.query(Accounts.strUserID == vstrUserID)
-            thisAccountList = findRequest.fetch()
-
-            if len(thisAccountList) > 0:
-                thisAccount = thisAccountList[0]
-                thisAccount.writeEmail(strinput=vstrEmail)
-                findRequest = Organization.query(Organization.strOrganizationID == thisAccount.strOrganizationID)
-                thisOrgList = findRequest.fetch()
-                if len(thisOrgList) > 0:
-                    thisOrg = thisOrgList[0]
-                    thisOrg.writeUserID(strinput=vstrUserID)
-                    thisOrg.put()
-
-            else:
-                findRequest = Accounts.query(Accounts.strEmail == vstrEmail)
-                thisAccountList = findRequest.fetch()
-                if len(thisAccountList) > 0:
-                    thisAccount = thisAccountList[0]
-                    thisAccount.writeUserID(strinput=vstrUserID)
-                    findRequest = Organization.query(Organization.strOrganizationID == thisAccount.strOrganizationID)
-                    thisOrgList = findRequest.fetch()
-                    if len(thisOrgList) > 0:
-                        thisOrg = thisOrgList[0]
-                        thisOrg.writeUserID(strinput=vstrUserID)
-                        thisOrg.put()
-                else:
-                    thisAccount = Accounts()
-                    thisAccount.writeUserID(strinput=vstrUserID)
-                    thisAccount.writeNames(strinput=vstrDisplayName)
-                    thisAccount.writeEmail(strinput=vstrEmail)
-                    thisAccount.writeProviderData(strinput=vstrProviderData)
-
-
-            if vstremailVerified == "YES":
-                thisAccount.writeVerified(strinput=True)
-            else:
-                thisAccount.writeVerified(strinput=False)
-                thisAccount.writeUserID(strinput=vstrUserID)
-                thisAccount.writeCell(strinput=vstrPhoneNumber)
-                thisAccount.writeProviderData(strinput=vstrProviderData)
-
-            thisAccount.writeAccessToken(strinput=vstrAccessToken)
-            thisAccount.put()
-
-            #TODO - Refine this part
 
 
     def RouteServiceAccount(self):
